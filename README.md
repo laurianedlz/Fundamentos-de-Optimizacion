@@ -25,6 +25,21 @@ Análisis de convergencia sobre funciones cuadráticas mal condicionadas con cur
 
 ---
 
+## Practico 3: Optimización con Restricciones (Simplejo Unitario)
+
+Se implementaron y compararon algoritmos para optimizar funciones cuadráticas sobre un simplejo unidad ($\sum x_i = 1, x_i \geq 0$).
+
+### Algoritmos Implementados:
+* **Frank-Wolfe (Conditional Gradient):** Un método que evita proyecciones costosas resolviendo un subproblema lineal en cada iteración para encontrar un vértice del conjunto admisible como dirección de descenso.
+* **Gradiente Proyectado:** Utiliza un paso de gradiente estándar seguido de una proyección ortogonal sobre el simplejo unitario para garantizar la factibilidad de la solución.
+
+### Análisis de Convergencia:
+* **Comportamiento de Frank-Wolfe:** Se demostró una convergencia **sublineal**. Debido a que el punto óptimo $x^*$ se encontraba en una cara del simplejo (y no en un vértice), el algoritmo presentó un efecto de "zigzag" extremo, con una tasa de error que tiende a $1$ en las iteraciones finales.
+* **Comportamiento del Gradiente Proyectado:** Mostró una convergencia **lineal** significativamente más rápida. Al poder desplazarse a través del interior del conjunto y proyectarse directamente, el ratio de error se mantuvo bajo y constante, alcanzando la precisión deseada en una fracción del tiempo.
+
+### Conclusión:
+Aunque Frank-Wolfe es computacionalmente "barato" por iteración al no requerir proyecciones, su lentitud en problemas donde el óptimo no es un vértice lo hace menos eficiente que el Gradiente Proyectado para este escenario específico.
+
 # Fundamentals-of-Optimization
 
 This project gathers the implementation and analysis of fundamental optimization algorithms covered during the course.
@@ -45,4 +60,21 @@ Convergence analysis on poorly conditioned quadratic functions with elliptical c
 * **Heavy Ball :** Introduces inertia to accelerate in flat areas and mitigate the bouncing behavior of pure gradient descent.
 * **Nesterov :** An improved version that uses a "look-ahead" gradient, offering more stable and faster convergence.
 * **$\beta$ Analysis:** It was demonstrated that a momentum near $0.9$ optimizes speed, while values too close to $1$ (such as $0.99$) can generate excessive oscillations and delay stability.
+
+---
+
+## Practice 3: Constrained Optimization (Unit Simplex)
+
+This project involved implementing and comparing algorithms for optimizing quadratic functions over a unit simplex ($\sum x_i = 1, x_i \geq 0$). 
+
+### Implemented Algorithms:
+* **Frank-Wolfe (Conditional Gradient):** An algorithm that avoids expensive projections by solving a linear subproblem in each iteration to find a vertex of the feasible set as the descent direction.
+* **Projected Gradient Descent:** A method that applies a standard gradient step followed by an orthogonal projection onto the unit simplex to ensure the solution remains feasible.
+
+### Convergence Analysis:
+* **Frank-Wolfe Performance:** Simulations demonstrated **sublinear** convergence. Because the optimal point $x^*$ was located on a face of the simplex (rather than a vertex), the algorithm exhibited an extreme "zigzagging" effect, with the error ratio tending toward $1$ in the final iterations.
+* **Projected Gradient Performance:** Showed significantly faster **linear** convergence. By moving through the interior of the set and projecting directly onto the boundary, the error ratio remained low and constant, reaching the desired precision in a fraction of the time.
+
+### Conclusion:
+While Frank-Wolfe is computationally "cheap" per iteration due to the lack of projection steps, its sluggishness in problems where the optimum is not a vertex makes it less efficient than Projected Gradient Descent for this specific scenario.
 
