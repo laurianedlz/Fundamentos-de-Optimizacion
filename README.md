@@ -40,6 +40,8 @@ Se implementaron y compararon algoritmos para optimizar funciones cuadráticas s
 ### Conclusión:
 Aunque Frank-Wolfe es computacionalmente "barato" por iteración al no requerir proyecciones, su lentitud en problemas donde el óptimo no es un vértice lo hace menos eficiente que el Gradiente Proyectado para este escenario específico.
 
+---
+
 # Fundamentals-of-Optimization
 
 This project gathers the implementation and analysis of fundamental optimization algorithms covered during the course.
