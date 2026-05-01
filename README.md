@@ -25,9 +25,7 @@ Análisis de convergencia sobre funciones cuadráticas mal condicionadas con cur
 
 ---
 
-## Practico 3: Optimización con Restricciones (Simplejo Unitario)
-
-Se implementaron y compararon algoritmos para optimizar funciones cuadráticas sobre un simplejo unidad ($\sum x_i = 1, x_i \geq 0$).
+## Practico 3: Optimización con Restricciones
 
 ### Algoritmos Implementados:
 * **Frank-Wolfe (Conditional Gradient):** Un método que evita proyecciones costosas resolviendo un subproblema lineal en cada iteración para encontrar un vértice del conjunto admisible como dirección de descenso.
@@ -39,6 +37,8 @@ Se implementaron y compararon algoritmos para optimizar funciones cuadráticas s
 
 ### Conclusión:
 Aunque Frank-Wolfe es computacionalmente "barato" por iteración al no requerir proyecciones, su lentitud en problemas donde el óptimo no es un vértice lo hace menos eficiente que el Gradiente Proyectado para este escenario específico.
+
+El número de condición $\kappa$ mide la dificultad de optimizar una función cuadrática ya que valores cercanos a 1 generan curvas circulares que permiten una convergencia rápida, mientras que valores elevados como $\kappa=1000$ deforman las curvas en elipses alargadas que atrapan al gradiente en oscilaciones lentas, obligando a métodos como Nesterov a usar la inercia para saltar estas elipses y mantener una convergencia eficiente.
 
 ---
 
@@ -65,9 +65,7 @@ Convergence analysis on poorly conditioned quadratic functions with elliptical c
 
 ---
 
-## Practice 3: Constrained Optimization (Unit Simplex)
-
-This project involved implementing and comparing algorithms for optimizing quadratic functions over a unit simplex ($\sum x_i = 1, x_i \geq 0$). 
+## Practice 3: Constrained Optimization
 
 ### Implemented Algorithms:
 * **Frank-Wolfe (Conditional Gradient):** An algorithm that avoids expensive projections by solving a linear subproblem in each iteration to find a vertex of the feasible set as the descent direction.
@@ -79,4 +77,6 @@ This project involved implementing and comparing algorithms for optimizing quadr
 
 ### Conclusion:
 While Frank-Wolfe is computationally "cheap" per iteration due to the lack of projection steps, its sluggishness in problems where the optimum is not a vertex makes it less efficient than Projected Gradient Descent for this specific scenario.
+
+The condition number $\kappa$ measures optimization difficulty: low values ($\kappa \approx 1$) create circular level curves allowing direct, fast convergence, while high values ($\kappa=1000$) create elongated ellipses that trap traditional gradient descent in slow oscillations. Accelerated methods like Nesterov overcome this by using momentum to 'jump' across these narrow valleys, maintaining efficient progress despite the geometric complexity.
 
